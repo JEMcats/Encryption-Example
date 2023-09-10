@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Encryption and Decryption</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 10px;
+        }
+
+        button {
+            display: block;
+            margin: 10px auto;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        p {
+            font-weight: bold;
+        }
+
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            transition: opacity 0.3s ease;
+            z-index: 2;
+        }
+
+        .popup.active {
+            display: block;
+            opacity: 1;
+        }
+
+        /* Add styles for overlay background */
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1;
+        }
+
+        #closePopup {
+            display: none;
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background-color: #FF0000;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Key Text Encryption and Decryption</h1>
+
+    <label for="inputText">Enter Text:</label>
+    <textarea id="inputText" rows="4" cols="50" inputmode="text"></textarea>
+
+    <button onclick="encryptText()">Encrypt</button>
+    <button onclick="decryptText()">Decrypt</button>
+
+    <p><strong>Encrypted Text:</strong></p>
+    <p id="encryptedText"></p>
+    <button onclick="copyEncryptedText()">Copy</button>
+
+    <p><strong>Decrypted Text:</strong></p>
+    <p id="decryptedText"></p>
+    <button onclick="openPopup()" id="openPopup">Have A Key? Input It Here</button>
+    <button onclick="openPopup2()" id="openPopup2">Share A Key</button>
+    <div class="popup" id="popup">
+        <h2>Enter Your Key</h2>
+        <input type="text" id="field1" placeholder="Encrypted Text">
+        <input type="text" id="field2" placeholder="Key">
+        <button onclick="submitForm()">Submit</button>
+        <button onclick="closePopup()">Close</button>
+    </div>
+    <div class="popup" id="popup2">
+        <h2 id="popuptext">Enter Your Encrypted Text You Want The Key For</h2>
+        <input type="text" id="field3" placeholder="Encrypted Text">
+        <button id="submit2" onclick="submitForm2()">Submit</button>
+        <h4 style="display: none;" id="outkey">Loading...</h4>
+        <button id="copyer" style="display: none;" onclick="copyOutKeyText()">Copy</button>
+        <button id="submit3" style="display: none;" onclick="submitForm3()">Done</button>
+        <button id="Close" onclick="closePopup()">Close</button>
+    </div>
+
+    <footer>All Stored Keys Are Deleted After 5 Days!</footer>
+
+    <!-- Overlay background element -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- Close popup button -->
+    <button onclick="closePopup()" id="closePopup">Close Popup</button>
+
+   <script src="alsomain.js"></script>
+</body>
+</html>

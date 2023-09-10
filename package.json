@@ -1,0 +1,57 @@
+{
+  "name": "Encryption-Example",
+  "version": "1.2.0",
+  "description": "Show An Example Of How Stuff Gets Encrypted",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "postinstall": "electron-builder install-app-deps",
+    "dist": "electron-builder --mac --linux --win",
+    "pack": "electron-builder --dir",
+    "publish": "electron-builder --mac --win --publish always",
+    "build": "electron-builder"
+  },
+  "build": {
+    "appId": "jemcats.software.app",
+    "productName": "Encryption Example",
+    "directories": {
+      "output": "dist"
+    },
+    "mac": {
+      "target": "dmg",
+      "icon": "electron.icns"
+    },
+    "dmg": {
+      "icon": "VolumeIcon.icns",
+      "background": "background.tiff",
+      "title": "Encryption Example Installer"
+    },
+    "win": {
+      "target": "nsis",
+      "icon": "electron.ico"
+    },
+    "linux": {
+      "target": "AppImage",
+      "category": "Development"
+    },
+    "publish": [
+      {
+        "provider": "github",
+        "owner": "JEMcats",
+        "repo": "Encryption-Example"
+    
+      }
+    ]
+  },
+  "keywords": [],
+  "author": "JEMcats-Software",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^26.2.0",
+    "electron-builder": "^24.6.4"
+  },
+  "dependencies": {
+    "electron-log": "^4.4.8",
+    "electron-updater": "^4.4.4"
+  }
+}

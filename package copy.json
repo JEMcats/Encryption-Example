@@ -1,0 +1,35 @@
+{
+  "name": "Encrytion-Example",
+  "version": "1.0.0",
+  "description": "Show An Example Of How Stuff Gets Encrypted",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+    
+  },
+  "build": {
+    "appId": "jemcats.software.app",
+    "productName": "Encrytion Example",
+    "directories": {
+      "output": "dist" 
+    },
+    "mac": {
+      "target": "dmg",
+      "icon": "electron.icns"
+    },
+    "dmg": {
+      "icon": "VolumeIcon.icns",
+      "background": "background.tiff",
+      "title":"Encrytion Example Installer"
+    }
+  },
+  
+  "keywords": [],
+  "author": "JEMcats-Software",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^26.2.0",
+    "electron-builder": "^24.6.4"
+  }
+  
+}
