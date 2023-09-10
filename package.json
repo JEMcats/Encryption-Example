@@ -1,6 +1,6 @@
 {
   "name": "Encryption-Example",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Show An Example Of How Stuff Gets Encrypted",
   "main": "main.js",
   "scripts": {
