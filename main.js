@@ -7,6 +7,7 @@ autoUpdater.logger.transports.file.level = 'info';
 let mainWindow;
 
 function createWindow() {
+  debugger; // Add a breakpoint here
   mainWindow = new BrowserWindow({ width: 800, height: 600 }); // Adjust window size as needed
   mainWindow.loadFile('index.html'); // Replace with the path to your HTML file
 
@@ -16,6 +17,7 @@ function createWindow() {
 }
 
 function checkForUpdates() {
+  debugger; // Add a breakpoint here
   // Specify the update feed URL for your GitHub repository
   autoUpdater.setFeedURL({
     provider: 'github',
@@ -28,6 +30,7 @@ function checkForUpdates() {
 
   // Event handler for when an update is available
   autoUpdater.on('update-available', () => {
+    debugger; // Add a breakpoint here
     dialog
       .showMessageBox({
         type: 'info',
@@ -37,6 +40,7 @@ function checkForUpdates() {
       })
       .then((response) => {
         if (response.response === 0) {
+          debugger; // Add a breakpoint here
           // Download and install the update
           autoUpdater.downloadUpdate();
         }
@@ -45,6 +49,7 @@ function checkForUpdates() {
 
   // Event handler for when an update is downloaded
   autoUpdater.on('update-downloaded', () => {
+    debugger; // Add a breakpoint here
     dialog.showMessageBox({
       type: 'info',
       title: 'Update Downloaded',
@@ -54,22 +59,26 @@ function checkForUpdates() {
 
   // Event handler for update errors
   autoUpdater.on('error', (error) => {
+    debugger; // Add a breakpoint here
     log.error('AutoUpdater error:', error.message);
   });
 }
 
 app.whenReady().then(() => {
+  debugger; // Add a breakpoint here
   createWindow(); // Create the main application window
   checkForUpdates(); // Check for updates
 });
 
 app.on('window-all-closed', () => {
+  debugger; // Add a breakpoint here
   if (process.platform !== 'darwin') {
     app.quit();
   }
 });
 
 app.on('activate', () => {
+  debugger; // Add a breakpoint here
   if (mainWindow === null) {
     createWindow(); // Create a new window when the application is activated
   }
